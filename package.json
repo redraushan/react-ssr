@@ -21,9 +21,7 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
-  },
-  "devDependencies": {
+    "redux-thunk": "^2.2.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.2",
     "babel-jest": "^21.2.0",
@@ -51,6 +49,9 @@
     "webpack-bundle-analyzer": "^2.9.1",
     "webpack-cli": "^2.0.9",
     "webpack-dev-server": "^3.0.0"
+  },
+  "devDependencies": {
+    
   },
   "browserslist": [
     "> 1%",
