@@ -46,6 +46,7 @@ app.get( "/*", ( req, res ) => {
 } );
 
 app.listen(port);
+console.log("Application running http://localhost:8080")
 
 function htmlTemplate( reactDom, reduxState, helmetData ) {
     return `
