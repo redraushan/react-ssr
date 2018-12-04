@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --progress",
     "dev": "npm-run-all --parallel server client",
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "client": "webpack --watch --progress",
     "linter": "eslint src",
     "bundlesize": "bundlesize",
