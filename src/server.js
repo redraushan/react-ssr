@@ -11,6 +11,7 @@ import Layout from "./components/Layout";
 import createStore, { initializeSession } from "./store";
 
 const app = express();
+const port = 8080;
 
 app.use( express.static( path.resolve( __dirname, "../dist" ) ) );
 
@@ -44,7 +45,7 @@ app.get( "/*", ( req, res ) => {
     } );
 } );
 
-app.listen( 2048 );
+app.listen(port);
 
 function htmlTemplate( reactDom, reduxState, helmetData ) {
     return `
