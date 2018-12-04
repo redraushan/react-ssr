@@ -13,7 +13,7 @@ import createStore, { initializeSession } from "./store";
 const app = express();
 
 const server_port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
-const server_ip_address = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+const server_ip_address = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
  
 app.use( express.static( path.resolve( __dirname, "../dist" ) ) );
 
