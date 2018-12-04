@@ -12,10 +12,9 @@ import createStore, { initializeSession } from "./store";
 
 const app = express();
 
-const server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
-const server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+const server_port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
+const server_ip_address = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
  
-
 app.use( express.static( path.resolve( __dirname, "../dist" ) ) );
 
 app.get( "/*", ( req, res ) => {
@@ -50,6 +49,7 @@ app.get( "/*", ( req, res ) => {
 
 app.listen(server_port, server_ip_address, () => {
   console.log( "Listening on " + server_ip_address + ", port " + server_port )
+  console.log( "process.env.IP" + process.env.IP + ", poprocess.env.PORT " + process.env.PORT )
 });
 
 function htmlTemplate( reactDom, reduxState, helmetData ) {
