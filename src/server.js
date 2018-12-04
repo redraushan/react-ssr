@@ -11,7 +11,10 @@ import Layout from "./components/Layout";
 import createStore, { initializeSession } from "./store";
 
 const app = express();
-const port = 8080;
+
+const server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+const server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+ 
 
 app.use( express.static( path.resolve( __dirname, "../dist" ) ) );
 
@@ -45,8 +48,9 @@ app.get( "/*", ( req, res ) => {
     } );
 } );
 
-app.listen(port);
-console.log("Application running http://localhost:8080")
+app.listen(server_port, server_ip_address, () => {
+  console.log( "Listening on " + server_ip_address + ", port " + server_port )
+});
 
 function htmlTemplate( reactDom, reduxState, helmetData ) {
     return `
