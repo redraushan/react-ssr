@@ -4,15 +4,21 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack --progress",
+    "build:client": "NODE_ENV=production webpack --progress",
+    "build:server": "BABEL_ENV=server babel src --out-dir ./build/server",
+    "build": "npm-run-all --parallel build:server build:client",
     "dev": "npm-run-all --parallel server client",
-    "server": "nodemon index.js",
+    "start": "node ./build/server/server.js",
+    "server": "BABEL_ENV=server babel src --out-dir ./build/server && nodemon ./build/server/server.js",
     "client": "webpack --watch --progress",
     "linter": "eslint src",
     "bundlesize": "bundlesize",
     "precommit": "eslint src --quiet"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-css-modules-transform": "^1.6.2",
+    "css-loader": "^2.0.0",
     "isomorphic-fetch": "^2.2.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -20,7 +26,8 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "style-loader": "^0.23.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

@@ -13,7 +13,17 @@
       "test": {
           "presets": ["react"],
           "plugins": ["transform-es2015-modules-commonjs"]
-      }
+      },
+      "server": {
+        "plugins": [
+            [
+                "css-modules-transform", {
+                    "generateScopedName": "[hash:8]",
+                    "extensions": [".css"]
+                }
+            ],["transform-es2015-modules-commonjs"]
+        ]
+    }
 
   }
 }
